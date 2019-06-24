@@ -1,0 +1,27 @@
+[debug] [2019-06-18T18:54:48.234Z] ----------------------------------------------------------------------
+[debug] [2019-06-18T18:54:48.237Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\bosha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js functions:shell
+[debug] [2019-06-18T18:54:48.237Z] CLI Version:   7.0.0
+[debug] [2019-06-18T18:54:48.237Z] Platform:      win32
+[debug] [2019-06-18T18:54:48.237Z] Node Version:  v10.15.3
+[debug] [2019-06-18T18:54:48.239Z] Time:          Tue Jun 18 2019 21:54:48 GMT+0300 (GMT+03:00)
+[debug] [2019-06-18T18:54:48.239Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-18T18:54:48.251Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-18T18:54:48.252Z] > authorizing via signed-in user
+[debug] [2019-06-18T18:54:48.252Z] [iam] checking project chat-app-4acb1 for permissions ["firebase.projects.get"]
+[debug] [2019-06-18T18:54:48.254Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/chat-app-4acb1:testIamPermissions  
+
+[debug] [2019-06-18T18:54:49.260Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-06-18T18:54:49.279Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/chat-app-4acb1  
+ 
+[debug] [2019-06-18T18:54:50.179Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-18T18:54:50.179Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/869976613758:getServerAppConfig  
+ 
+[debug] [2019-06-18T18:54:50.505Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5001
+[debug] [2019-06-18T18:54:50.519Z] [functions] Watching "D:\web\chat\functions" for Cloud Functions...
+[debug] [2019-06-18T18:54:51.085Z] DEBUG: Functions runtime initialized.
+[debug] [2019-06-18T18:54:51.086Z] DEBUG: Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[debug] [2019-06-18T18:54:51.091Z] [functions] Your functions could not be parsed due to an issue with your node_modules (see above)
