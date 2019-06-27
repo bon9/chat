@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Channel from "./Channel";
-import { firebase, db } from "./firebase";
+import { firebase, db, setupPresence } from "./firebase";
 import { Router, Redirect } from "@reach/router";
 
 function App() {
-  const user = useAuth({});
+  const user = useAuth("");
 
   return user ? (
     <div className="App">
@@ -49,6 +49,7 @@ function Login() {
   );
 }
 
+// установка юзера в базу и в онлайн (setupPresence)
 function useAuth() {
   const [user, setUser] = useState("");
 
@@ -58,12 +59,19 @@ function useAuth() {
         const user = {
           displayName: firebaseUser.displayName,
           photoUrl: firebaseUser.photoURL,
-          uid: firebaseUser.uid
+          uid: firebaseUser.uid,
+          status: {
+            lastChanged: "",
+            state: ""
+          }
         };
+
         setUser(user);
+
         db.collection("users")
           .doc(user.uid)
           .set(user, { merge: true });
+        setupPresence(user);
       } else {
         setUser("");
       }

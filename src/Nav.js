@@ -1,9 +1,10 @@
 import React from "react";
 import useCollection from "./useCollection";
-import { firebase } from "./firebase";
+import { firebase, db } from "./firebase";
 import { Link } from "@reach/router";
 
 function Nav({ user }) {
+  console.log(user);
   const channels = useCollection("channels");
   return (
     <div className="Nav">
@@ -15,6 +16,7 @@ function Nav({ user }) {
             <button
               onClick={() => {
                 firebase.auth().signOut();
+                changeStatusToOffline(user.uid);
               }}
               className="text-button"
             >
@@ -33,4 +35,15 @@ function Nav({ user }) {
     </div>
   );
 }
+
+function changeStatusToOffline(userId) {
+  const userDoc = db.doc(`/users/${userId}`);
+  userDoc.update({
+    status: {
+      state: "offline",
+      lastChanged: firebase.firestore.FieldValue.serverTimestamp()
+    }
+  });
+}
+
 export default Nav;
