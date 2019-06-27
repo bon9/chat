@@ -1,3 +1,8 @@
+* {
+  --main-color: #ff2800;
+  --secondary-color: #282e33;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -9,25 +14,23 @@ body {
 }
 
 .App {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   display: flex;
+  width: 100%;
+  height: 100vh;
 }
 
 .Nav {
-  background: #454545;
+  background: var(--secondary-color);
   color: #fff;
-  width: 225px;
+  width: 10%;
+  min-width: 180px;
   display: flex;
   flex-direction: column;
 }
 
 .Nav + * {
   display: flex;
-  flex: 1;
+  width: 90%;
 }
 
 .User {
@@ -68,13 +71,14 @@ body {
 }
 
 .Channel {
-  flex: 1;
+  width: 100%;
   display: flex;
 }
 
 .ChannelMain {
   flex: 1;
   display: flex;
+  width: 90%;
   flex-direction: column;
 }
 
@@ -87,15 +91,13 @@ body {
   border-bottom: solid 1px #ccc;
 }
 
-.Topic {
-}
-
-.TopicInput {
+.TopicMessage {
   font: inherit;
-  border: 1px solid transparent;
+  padding: 0;
+  margin: 0;
 }
 
-.TopicInput:hover {
+.TopicMessage:hover {
   border-color: #ccc;
 }
 
@@ -140,7 +142,6 @@ body {
   background-size: cover;
   background-position: center center;
   background-color: #fefefe;
-  background-image: url(https://placekitten.com/64/64);
 }
 
 .Author {
@@ -157,15 +158,14 @@ body {
   font-size: 80%;
 }
 
-.MessageContent {
-}
-
 .Message.no-avatar {
   margin-left: 38px;
 }
 
 .ChatInputBox {
+  position: relative;
   padding: 0px 20px 20px 20px;
+  bottom: 0;
 }
 
 .ChatInput {
@@ -186,7 +186,8 @@ body {
 .Members {
   padding: 20px;
   border-left: solid 1px #ccc;
-  width: 150px;
+  min-width: 150px;
+  width: 10%;
 }
 
 .Member {
@@ -222,4 +223,33 @@ body {
 .Login {
   text-align: center;
   margin-top: 55px;
+}
+
+@media (max-width: 400px) {
+  .App {
+    height: calc(100vh-61px);
+  }
+
+  .Nav {
+    align-items: center;
+    min-width: 80px;
+  }
+  .ChannelNav a {
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  .ChannelInfo {
+    padding: 0;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .User {
+    flex-direction: column;
+    padding: 0;
+    margin: 20px 0 35px 0;
+  }
+  .UserName,
+  .Members {
+    display: none;
+  }
 }

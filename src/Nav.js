@@ -4,14 +4,13 @@ import { firebase, db } from "./firebase";
 import { Link } from "@reach/router";
 
 function Nav({ user }) {
-  console.log(user);
   const channels = useCollection("channels");
   return (
     <div className="Nav">
       <div className="User">
         <img className="UserImage" alt={user.displayName} src={user.photoUrl} />
         <div>
-          <div>{user.displayName}</div>
+          <div className="UserName">{user.displayName}</div>
           <div>
             <button
               onClick={() => {
